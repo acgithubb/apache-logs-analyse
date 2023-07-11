@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
-import data from "./access.txt"
+import data from "./access.txt" 
+import './App.css';
 
 Chart.register(...registerables);
 
@@ -134,10 +135,36 @@ const LogChart = () => {
   }, [logData]);
 
   return (
-    <div>
-      <canvas ref={barChartRef} />
-      <canvas ref={pieChartRef} style={{ width: '50%', margin: '0 auto' }} />
-    </div>
+    <>
+      <div className="dashboard">
+        <div class="flex gap-8">
+          <div class="flex-none">
+            <div className='dashboard-left'>
+              {/* <nav class="dd-bg">
+                <ul>
+                  <li><a href='/' >DashBoard</a></li>
+                  <li><a href='/' >DashBoard</a></li>
+                  <li><a href='/' >DashBoard</a></li>
+                  <li><a href='/' >DashBoard</a></li>
+                  <li><a href='/' >DashBoard</a></li>
+                  <li><a href='/' >DashBoard</a></li>
+                </ul>
+              </nav> */}
+            </div>
+          </div>
+          <div class="flex-auto w-64">
+            <div className='rounded shadow-lg bg-slate-50'>
+              <canvas ref={barChartRef} />  
+            </div> 
+          </div>
+          <div class="flex-auto w-32">
+            <div className='rounded shadow-lg bg-slate-50'>
+              <canvas ref={pieChartRef} style={{ width: '50%', margin: '0 auto' }} />
+            </div> 
+          </div>
+        </div>  
+      </div> 
+    </>
   );
 };
 
