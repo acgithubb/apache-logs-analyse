@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Fragment } from 'react';
 import { Chart, registerables } from 'chart.js';
 import data from "./access.txt" 
 import './App.css';
-
+  
 Chart.register(...registerables);
 
 const LogChart = () => {
@@ -132,36 +132,89 @@ const LogChart = () => {
         pieChart.destroy();
       };
     }
-  }, [logData]);
+  }, [logData]); 
 
   return (
-    <>
+    <> 
       <div className="dashboard">
-        <div class="flex gap-8">
+        <div class="flex">
           <div class="flex-none">
             <div className='dashboard-left'>
-              {/* <nav class="dd-bg">
-                <ul>
-                  <li><a href='/' >DashBoard</a></li>
-                  <li><a href='/' >DashBoard</a></li>
-                  <li><a href='/' >DashBoard</a></li>
-                  <li><a href='/' >DashBoard</a></li>
-                  <li><a href='/' >DashBoard</a></li>
-                  <li><a href='/' >DashBoard</a></li>
-                </ul>
-              </nav> */}
+              <div className="flex items-center justify-between">
+                <a href="/" className="-m-1.5 p-1.5">
+                  <span className="sr-only">Your Company</span>
+                  <img
+                    className="h-8 w-auto"
+                    src="https://www.dignitasdigital.com/wp-content/uploads/2022/09/dd-log-10-years.png"
+                    alt=""
+                  />
+                </a> 
+              </div>
+              <div className="mt-6 flow-root">
+                <div className="-my-6 divide-y divide-gray-500/10">
+                  <div className="space-y-2 py-6"> 
+                    <a
+                      href="/"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Analytics
+                    </a>
+                    <a
+                      href="/"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      CRM
+                    </a>
+                    <a
+                      href="/"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Ecommerce
+                    </a>
+                    <a
+                      href="/"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Crypto
+                    </a>
+                    <a
+                      href="/"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Projects
+                    </a>
+                    <a
+                      href="/"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      NFT
+                    </a>
+                    <a
+                      href="/"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Job
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="flex-auto w-64">
-            <div className='rounded shadow-lg bg-slate-50'>
-              <canvas ref={barChartRef} />  
-            </div> 
-          </div>
-          <div class="flex-auto w-32">
-            <div className='rounded shadow-lg bg-slate-50'>
-              <canvas ref={pieChartRef} style={{ width: '50%', margin: '0 auto' }} />
-            </div> 
-          </div>
+          <div class="flex-auto w-full">
+            <div className='flex gap-8 flex-wrap'>
+              <div class="flex-none w-full page-head font-semibold text-gray-900"><h3>Error Codes</h3></div>
+              <div class="flex-auto w-64 ml-3">
+                <div className='rounded shadow-lg bg-slate-50 p-5 ml-3 height:full'>
+                  <canvas ref={barChartRef} />  
+                </div> 
+              </div>
+              <div class="flex-auto w-32 mr-3">
+                <div className='rounded shadow-lg bg-slate-50 p-5 mr-3 height:full'>
+                  <canvas ref={pieChartRef} style={{ width: '50%', margin: '0 auto' }} />
+                </div> 
+              </div>
+            </div>
+          </div> 
         </div>  
       </div> 
     </>
